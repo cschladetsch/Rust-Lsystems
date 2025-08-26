@@ -44,26 +44,55 @@ Complete reference for all controls, features, and usage patterns.
 ### System Controls
 | Key | Action | Description |
 |-----|--------|-------------|
-| **Tab** | Toggle Menu | Show/hide the L-system selection menu |
+| **M** | Main Menu | Show/hide the main navigation menu |
+| **Tab** | Tree Selection | Show/hide the L-system selection menu |
+| **G** | GUI Controls | Toggle real-time parameter sliders |
 | **E** | Edit L-system | Open current L-system file in vim |
 | **R** | Reload | Reload current L-system from disk |
+| **H** | Help | Show/hide help screen |
 | **Escape** | Exit | Close the application |
 
 ## Menu System
 
-### Navigation
-- **Tab**: Toggle menu visibility
-- **Up/Down Arrows**: Navigate menu items
-- **Enter**: Select highlighted item
-- **Tab** (again): Close menu
+### Main Menu (M key)
+- **Purpose**: Central hub for all application features
+- **Navigation**: Up/Down arrows to navigate, Enter to select
+- **Options**: Tree Selection, Parameters, Edit, Reload, Help, Exit
+- **Hotkeys**: Each option shows its direct hotkey (Tab, G, E, R, H)
+- **Quick Access**: Use hotkeys directly or navigate through menu
 
-### Menu Features
+### Tree Selection Menu (Tab key)
+- **Purpose**: Browse and load different L-system species
+- **Navigation**: Up/Down arrows to navigate menu items
+- **Selection**: Enter to load selected tree, or use number keys 1-9
 - **Visual Indicators**: Selected item highlighted in green
-- **Hotkey Display**: Shows number keys for quick access
 - **File Status**: Displays which L-systems are available
-- **Instructions**: Built-in help text at bottom
 
-### Menu Layout
+### GUI Parameter Controls (G key)
+- **Purpose**: Real-time editing of L-system parameters
+- **Features**: Sliders for angle, step length, trunk width, branch taper
+- **Interactive**: Drag sliders to see immediate changes
+- **Live Preview**: Changes apply instantly to the rendered tree
+
+### Main Menu Layout
+```
+┌─────────────────────────────────────┐
+│ 3D L-Systems Main Menu              │
+├─────────────────────────────────────┤
+│ Current: Cherry Blossom             │
+│                                     │
+│ > [Tab] Tree Species                │
+│   [G] Parameters                    │
+│   [E] Edit L-system                 │
+│   [R] Reload                        │
+│   [H] Help                          │
+│   [Esc] Exit                        │
+├─────────────────────────────────────┤
+│ Arrow Keys: Navigate | M: Toggle    │
+└─────────────────────────────────────┘
+```
+
+### Tree Selection Menu Layout
 ```
 ┌─────────────────────────────────────┐
 │ L-System Menu                       │
@@ -75,7 +104,7 @@ Complete reference for all controls, features, and usage patterns.
 │   ...                               │
 ├─────────────────────────────────────┤
 │ Arrow keys: Navigate | Enter: Select│
-│ Tab: Toggle Menu | E: Edit          │
+│ Tab: Toggle Menu | 1-9: Quick Load  │
 └─────────────────────────────────────┘
 ```
 
@@ -221,9 +250,14 @@ Navigation:
   Mouse Drag     - Rotate camera
   Mouse Wheel    - Zoom in/out
   
+Menu System:
+  M             - Main menu (central hub)
+  Tab           - Tree selection menu
+  G             - GUI parameter controls
+  H             - Help screen
+  
 Quick Selection:
   1-9           - Instant tree loading
-  Tab           - Menu toggle
   
 Editing:
   E             - Edit current L-system

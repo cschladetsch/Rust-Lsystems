@@ -63,7 +63,9 @@ cargo run --release
 ### Basic Controls
 - **Mouse + Drag**: Rotate camera around the L-system
 - **Mouse Wheel**: Zoom in/out
-- **Tab**: Toggle menu to browse L-systems
+- **M**: Toggle main menu (central navigation hub)
+- **Tab**: Toggle tree selection menu
+- **G**: Toggle GUI parameter controls for real-time editing
 - **Escape**: Exit application
 
 ### Quick Tree Selection
@@ -77,9 +79,19 @@ cargo run --release
 - **8**: Baobab Tree (thick African trunk)
 - **9**: Spiral Eucalyptus (spiraling growth)
 
+### Menu Navigation
+- **Main Menu (M)**: Access all features from one central hub
+  - Tree Species → Tab menu or number keys 1-9
+  - Parameters → G key for real-time sliders
+  - Edit L-system → E key to open in vim
+  - Reload → R key to refresh from disk
+  - Help → H key for controls reference
+  - Exit → Escape to close
+
 ### Live Editing
 - **E**: Edit current L-system file in vim
 - **R**: Reload L-system after editing
+- **G**: Real-time parameter adjustment with sliders
 - **Tab → Arrow Keys → Enter**: Navigate and select L-systems
 
 ## L-System File Format

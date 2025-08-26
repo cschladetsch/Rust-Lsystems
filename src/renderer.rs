@@ -17,11 +17,16 @@ impl Vertex {
 pub struct Line {
     pub start: Vertex,
     pub end: Vertex,
+    pub thickness: f32,
 }
 
 impl Line {
     pub fn new(start: Vertex, end: Vertex) -> Self {
-        Self { start, end }
+        Self { start, end, thickness: 1.0 }
+    }
+    
+    pub fn new_with_thickness(start: Vertex, end: Vertex, thickness: f32) -> Self {
+        Self { start, end, thickness }
     }
 }
 
@@ -59,11 +64,11 @@ impl Renderer {
         let lines = self.lines.clone(); // Clone to avoid borrow checker issues
         
         for line in &lines {
-            self.draw_line_3d(&line.start, &line.end, &view_proj);
+            self.draw_line_3d(&line.start, &line.end, line.thickness, &view_proj);
         }
     }
     
-    fn draw_line_3d(&mut self, start: &Vertex, end: &Vertex, view_proj: &Mat4) {
+    fn draw_line_3d(&mut self, start: &Vertex, end: &Vertex, thickness: f32, view_proj: &Mat4) {
         let start_clip = *view_proj * Vec4::new(start.position.x, start.position.y, start.position.z, 1.0);
         let end_clip = *view_proj * Vec4::new(end.position.x, end.position.y, end.position.z, 1.0);
         
@@ -97,34 +102,54 @@ impl Renderer {
             end_ndc.z,
         );
         
-        self.draw_line_2d(start_screen, end_screen, start.color, end.color);
+        self.draw_line_2d(start_screen, end_screen, start.color, end.color, thickness);
     }
     
-    fn draw_line_2d(&mut self, start: Vec3, end: Vec3, start_color: Vec3, end_color: Vec3) {
-        let dx = (end.x - start.x).abs();
-        let dy = (end.y - start.y).abs();
+    fn draw_line_2d(&mut self, start: Vec3, end: Vec3, start_color: Vec3, end_color: Vec3, thickness: f32) {
+        let dx = end.x - start.x;
+        let dy = end.y - start.y;
+        let length = (dx * dx + dy * dy).sqrt();
         
-        let steps = (dx.max(dy) as i32).max(1);
+        if length == 0.0 {
+            return;
+        }
+        
+        // Perpendicular vector for thickness
+        let perp_x = -dy / length * thickness * 0.5;
+        let perp_y = dx / length * thickness * 0.5;
+        
+        let steps = (length as i32).max(1);
         
         for i in 0..=steps {
             let t = i as f32 / steps as f32;
             
-            let x = (start.x + t * (end.x - start.x)) as i32;
-            let y = (start.y + t * (end.y - start.y)) as i32;
+            let center_x = start.x + t * dx;
+            let center_y = start.y + t * dy;
             let z = start.z + t * (end.z - start.z);
             
-            if x >= 0 && x < self.width as i32 && y >= 0 && y < self.height as i32 {
-                let idx = y as usize * self.width + x as usize;
-                
-                if z < self.depth_buffer[idx] {
-                    self.depth_buffer[idx] = z;
-                    
-                    let color = start_color + t * (end_color - start_color);
-                    let r = (color.x.clamp(0.0, 1.0) * 255.0) as u32;
-                    let g = (color.y.clamp(0.0, 1.0) * 255.0) as u32;
-                    let b = (color.z.clamp(0.0, 1.0) * 255.0) as u32;
-                    
-                    self.buffer[idx] = (r << 16) | (g << 8) | b;
+            let color = start_color + t * (end_color - start_color);
+            let r = (color.x.clamp(0.0, 1.0) * 255.0) as u32;
+            let g = (color.y.clamp(0.0, 1.0) * 255.0) as u32;
+            let b = (color.z.clamp(0.0, 1.0) * 255.0) as u32;
+            let pixel_color = (r << 16) | (g << 8) | b;
+            
+            // Draw thick line as a series of circles
+            let radius = (thickness * 0.5).max(1.0) as i32;
+            for dy in -radius..=radius {
+                for dx in -radius..=radius {
+                    if (dx * dx + dy * dy) as f32 <= radius as f32 * radius as f32 {
+                        let px = (center_x as i32 + dx).max(0).min(self.width as i32 - 1);
+                        let py = (center_y as i32 + dy).max(0).min(self.height as i32 - 1);
+                        
+                        if px >= 0 && px < self.width as i32 && py >= 0 && py < self.height as i32 {
+                            let idx = py as usize * self.width + px as usize;
+                            
+                            if z < self.depth_buffer[idx] {
+                                self.depth_buffer[idx] = z;
+                                self.buffer[idx] = pixel_color;
+                            }
+                        }
+                    }
                 }
             }
         }

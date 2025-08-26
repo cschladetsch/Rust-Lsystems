@@ -4,8 +4,8 @@
   "angle": 22.5,
   "iterations": 5,
   "rules": {
-    "A": "!F[&+A][\\/A][^-A]",
-    "F": "FF"
+    "A": "!!!F[&+A'][\\/A'][^-A']",
+    "F": "FF'"
   },
   "step_length": 1.0,
   "start_position": [0.0, -8.0, 0.0],

@@ -117,7 +117,7 @@ impl Turtle3D {
             let start = Vertex::new(self.current_state.position, color);
             let end = Vertex::new(new_position, color);
             
-            renderer.add_line(Line::new(start, end));
+            renderer.add_line(Line::new_with_thickness(start, end, self.current_state.line_width));
         }
         
         self.current_state.position = new_position;
