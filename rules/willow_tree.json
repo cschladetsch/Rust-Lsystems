@@ -1,0 +1,23 @@
+{
+  "name": "Weeping Willow 3D",
+  "axiom": "W",
+  "angle": 15.0,
+  "iterations": 7,
+  "rules": {
+    "W": "F[&+W][&-W][\\&W][\\/&W]",
+    "F": "F[&f]"
+  },
+  "step_length": 0.6,
+  "start_position": [0.0, -6.0, 0.0],
+  "start_direction": [0.0, 1.0, 0.0],
+  "colors": {
+    "depth_based": true,
+    "palette": [
+      [0.4, 0.2, 0.0],
+      [0.3, 0.4, 0.1],
+      [0.2, 0.6, 0.2],
+      [0.4, 0.8, 0.2]
+    ]
+  },
+  "description": "Graceful weeping willow with drooping branches using pitch-down (&) commands"
+}

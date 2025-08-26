@@ -34,10 +34,15 @@ impl Menu {
         
         // Add default systems with hotkeys
         let default_systems = vec![
-            ("Dragon Curve", "rules/dragon_curve.json", Some(Key::Key1)),
-            ("Koch Snowflake", "rules/koch_snowflake.json", Some(Key::Key2)),
-            ("Plant", "rules/plant.json", Some(Key::Key3)),
-            ("Sierpinski Triangle", "rules/sierpinski.json", Some(Key::Key4)),
+            ("Sierpinski Triangle", "rules/sierpinski.json", Some(Key::Key1)),
+            ("3D Plant", "rules/plant.json", Some(Key::Key2)),
+            ("Oak Tree", "rules/oak_tree.json", Some(Key::Key3)),
+            ("Pine Tree", "rules/pine_tree.json", Some(Key::Key4)),
+            ("Cherry Blossom", "rules/cherry_blossom.json", Some(Key::Key5)),
+            ("Autumn Maple", "rules/autumn_maple.json", Some(Key::Key6)),
+            ("Weeping Willow", "rules/willow_tree.json", Some(Key::Key7)),
+            ("Baobab Tree", "rules/baobab_tree.json", Some(Key::Key8)),
+            ("Spiral Eucalyptus", "rules/spiral_eucalyptus.json", Some(Key::Key9)),
         ];
         
         for (name, path, key) in default_systems {

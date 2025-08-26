@@ -1,0 +1,23 @@
+{
+  "name": "Oak Tree 3D",
+  "axiom": "A",
+  "angle": 22.5,
+  "iterations": 5,
+  "rules": {
+    "A": "!F[&+A][\\/A][^-A]",
+    "F": "FF"
+  },
+  "step_length": 1.0,
+  "start_position": [0.0, -8.0, 0.0],
+  "start_direction": [0.0, 1.0, 0.0],
+  "colors": {
+    "depth_based": true,
+    "palette": [
+      [0.4, 0.2, 0.0],
+      [0.6, 0.3, 0.1],
+      [0.2, 0.6, 0.1],
+      [0.1, 0.8, 0.2]
+    ]
+  },
+  "description": "Realistic 3D oak tree with thick trunk, wide branching using pitch (&^) and roll (\\//) for natural spread"
+}

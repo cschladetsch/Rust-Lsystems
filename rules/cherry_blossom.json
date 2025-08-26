@@ -1,0 +1,24 @@
+{
+  "name": "Cherry Blossom 3D",
+  "axiom": "C",
+  "angle": 20.0,
+  "iterations": 6,
+  "rules": {
+    "C": "F[\\^+C][/^-C][&+C][&-C]",
+    "F": "F#"
+  },
+  "step_length": 0.7,
+  "start_position": [0.0, -7.0, 0.0],
+  "start_direction": [0.0, 1.0, 0.0],
+  "colors": {
+    "depth_based": false,
+    "palette": [
+      [0.4, 0.2, 0.0],
+      [0.8, 0.4, 0.5],
+      [1.0, 0.7, 0.8],
+      [1.0, 0.9, 0.9],
+      [0.9, 0.2, 0.4]
+    ]
+  },
+  "description": "Beautiful cherry blossom tree with pink flowering branches using color increments (#)"
+}

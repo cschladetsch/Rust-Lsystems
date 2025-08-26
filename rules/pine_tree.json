@@ -1,0 +1,23 @@
+{
+  "name": "Pine Tree 3D",
+  "axiom": "T",
+  "angle": 25.0,
+  "iterations": 6,
+  "rules": {
+    "T": "F[&+T][&-T][^\\T][^\\/T]T",
+    "F": "F"
+  },
+  "step_length": 0.8,
+  "start_position": [0.0, -10.0, 0.0],
+  "start_direction": [0.0, 1.0, 0.0],
+  "colors": {
+    "depth_based": true,
+    "palette": [
+      [0.3, 0.15, 0.0],
+      [0.0, 0.4, 0.1],
+      [0.0, 0.6, 0.2],
+      [0.0, 0.8, 0.3]
+    ]
+  },
+  "description": "Coniferous pine tree with upward branching, using roll commands for radial symmetry"
+}

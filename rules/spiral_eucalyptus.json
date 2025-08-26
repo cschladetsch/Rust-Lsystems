@@ -1,0 +1,25 @@
+{
+  "name": "Spiral Eucalyptus 3D",
+  "axiom": "E",
+  "angle": 18.0,
+  "iterations": 8,
+  "rules": {
+    "E": "F[\\E][/E]E",
+    "F": "F\\#"
+  },
+  "step_length": 0.5,
+  "start_position": [0.0, -8.0, 0.0],
+  "start_direction": [0.0, 1.0, 0.0],
+  "colors": {
+    "depth_based": false,
+    "palette": [
+      [0.4, 0.2, 0.0],
+      [0.3, 0.5, 0.2],
+      [0.2, 0.7, 0.3],
+      [0.1, 0.8, 0.4],
+      [0.0, 0.9, 0.5],
+      [0.2, 0.9, 0.6]
+    ]
+  },
+  "description": "Unique eucalyptus with spiraling growth pattern using continuous roll (\\\\) and color changes"
+}

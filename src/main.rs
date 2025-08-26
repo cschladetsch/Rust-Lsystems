@@ -109,7 +109,7 @@ fn main() {
                 .long("rule")
                 .value_name("FILE")
                 .help("JSON file containing L-System rules")
-                .default_value("rules/sierpinski.json"),
+                .default_value("rules/cherry_blossom.json"),
         )
         .get_matches();
 
@@ -128,7 +128,7 @@ fn main() {
     println!("  Mouse + Drag: Rotate camera");
     println!("  Mouse Wheel: Zoom in/out");
     println!("  Tab: Toggle menu");
-    println!("  1-4: Load preset L-systems");
+    println!("  1-9: Load tree species (1=Sierpinski, 2=Plant, 3=Oak, 4=Pine, 5=Cherry, 6=Maple, 7=Willow, 8=Baobab, 9=Eucalyptus)");
     println!("  E: Edit current L-system in vim");
     println!("  R: Reload current L-system");
     println!("  Escape: Exit");

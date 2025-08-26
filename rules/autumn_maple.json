@@ -1,0 +1,25 @@
+{
+  "name": "Autumn Maple 3D",
+  "axiom": "M",
+  "angle": 25.0,
+  "iterations": 5,
+  "rules": {
+    "M": "F[\\+M#][/-M#][&+M#][^-M#]",
+    "F": "FF#"
+  },
+  "step_length": 1.2,
+  "start_position": [0.0, -9.0, 0.0],
+  "start_direction": [0.0, 1.0, 0.0],
+  "colors": {
+    "depth_based": false,
+    "palette": [
+      [0.3, 0.15, 0.0],
+      [0.8, 0.4, 0.0],
+      [1.0, 0.6, 0.0],
+      [1.0, 0.2, 0.0],
+      [0.7, 0.0, 0.0],
+      [0.9, 0.9, 0.0]
+    ]
+  },
+  "description": "Autumn maple with vibrant fall colors transitioning from brown trunk to red/orange/yellow leaves"
+}
