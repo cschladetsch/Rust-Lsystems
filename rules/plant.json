@@ -1,0 +1,20 @@
+{
+  "name": "Plant",
+  "axiom": "X",
+  "angle": 25.0,
+  "iterations": 6,
+  "rules": {
+    "X": "F+[[X]-X]-F[-FX]+X",
+    "F": "FF"
+  },
+  "drawing_rules": {
+    "F": "forward",
+    "+": "turn_right",
+    "-": "turn_left",
+    "[": "push_state",
+    "]": "pop_state"
+  },
+  "step_size": 3.0,
+  "start_position": [400.0, 600.0],
+  "start_angle": -90.0
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Dragon Curve",
+  "axiom": "F",
+  "angle": 90.0,
+  "iterations": 12,
+  "rules": {
+    "F": "F+G",
+    "G": "F-G"
+  },
+  "drawing_rules": {
+    "F": "forward",
+    "G": "forward",
+    "+": "turn_right",
+    "-": "turn_left"
+  },
+  "step_size": 4.0,
+  "start_position": [300.0, 300.0],
+  "start_angle": 0.0
+}

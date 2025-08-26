@@ -1,0 +1,17 @@
+{
+  "name": "Koch Snowflake",
+  "axiom": "F++F++F",
+  "angle": 60.0,
+  "iterations": 4,
+  "rules": {
+    "F": "F-F++F-F"
+  },
+  "drawing_rules": {
+    "F": "forward",
+    "+": "turn_right",
+    "-": "turn_left"
+  },
+  "step_size": 3.0,
+  "start_position": [200.0, 400.0],
+  "start_angle": 0.0
+}
