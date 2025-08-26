@@ -1,20 +1,22 @@
 {
-  "name": "Plant",
+  "name": "3D Plant",
   "axiom": "X",
   "angle": 25.0,
-  "iterations": 6,
+  "iterations": 5,
   "rules": {
     "X": "F+[[X]-X]-F[-FX]+X",
     "F": "FF"
   },
-  "drawing_rules": {
-    "F": "forward",
-    "+": "turn_right",
-    "-": "turn_left",
-    "[": "push_state",
-    "]": "pop_state"
+  "step_length": 0.8,
+  "start_position": [0.0, -5.0, 0.0],
+  "start_direction": [0.0, 1.0, 0.0],
+  "colors": {
+    "depth_based": true,
+    "palette": [
+      [0.4, 0.2, 0.0],
+      [0.0, 0.8, 0.2],
+      [0.2, 1.0, 0.1]
+    ]
   },
-  "step_size": 3.0,
-  "start_position": [400.0, 600.0],
-  "start_angle": -90.0
+  "description": "A 3D plant structure with branching"
 }

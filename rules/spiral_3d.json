@@ -1,0 +1,22 @@
+{
+  "name": "3D Spiral",
+  "axiom": "F",
+  "angle": 45.0,
+  "iterations": 8,
+  "rules": {
+    "F": "F+F&F^F\\F/F"
+  },
+  "step_length": 0.5,
+  "start_position": [0.0, 0.0, 0.0],
+  "start_direction": [0.0, 1.0, 0.0],
+  "colors": {
+    "depth_based": true,
+    "palette": [
+      [1.0, 0.0, 1.0],
+      [0.0, 1.0, 1.0],
+      [1.0, 1.0, 0.0],
+      [1.0, 0.5, 0.0]
+    ]
+  },
+  "description": "A colorful 3D spiral using pitch, roll, and yaw"
+}
