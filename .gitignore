@@ -1,0 +1,30 @@
+# Rust build artifacts
+target/
+Cargo.lock
+
+# Generated binaries
+*.exe
+*.pdb
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local configuration
+.env
+.env.local
+
+# Debug/profiling
+perf.data*
+callgrind.out.*
+
+# Backup files
+*.bak
+*.orig

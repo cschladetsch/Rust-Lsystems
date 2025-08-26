@@ -1,1 +1,0 @@
-/home/christian/local/RustL-System/target/release/RustL-System: /home/christian/local/RustL-System/src/camera.rs /home/christian/local/RustL-System/src/editor.rs /home/christian/local/RustL-System/src/main.rs /home/christian/local/RustL-System/src/menu.rs /home/christian/local/RustL-System/src/renderer.rs /home/christian/local/RustL-System/src/turtle3d.rs
