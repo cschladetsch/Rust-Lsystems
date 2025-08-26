@@ -106,6 +106,9 @@ impl Renderer {
     }
     
     fn draw_line_2d(&mut self, start: Vec3, end: Vec3, start_color: Vec3, end_color: Vec3, thickness: f32) {
+        // Apply depth-based shading
+        let start_shaded = self.apply_depth_shading(start_color, start.z);
+        let end_shaded = self.apply_depth_shading(end_color, end.z);
         let dx = end.x - start.x;
         let dy = end.y - start.y;
         let length = (dx * dx + dy * dy).sqrt();
@@ -127,7 +130,7 @@ impl Renderer {
             let center_y = start.y + t * dy;
             let z = start.z + t * (end.z - start.z);
             
-            let color = start_color + t * (end_color - start_color);
+            let color = start_shaded + t * (end_shaded - start_shaded);
             let r = (color.x.clamp(0.0, 1.0) * 255.0) as u32;
             let g = (color.y.clamp(0.0, 1.0) * 255.0) as u32;
             let b = (color.z.clamp(0.0, 1.0) * 255.0) as u32;
@@ -164,5 +167,17 @@ impl Renderer {
         self.height = height;
         self.buffer.resize(width * height, 0);
         self.depth_buffer.resize(width * height, f32::MAX);
+    }
+    
+    fn apply_depth_shading(&self, color: Vec3, depth: f32) -> Vec3 {
+        // Normalize depth to 0.0 (far) to 1.0 (near)
+        let depth_factor = ((depth + 1.0) * 0.5).clamp(0.0, 1.0);
+        
+        // Apply ambient + depth-based lighting
+        let ambient = 0.3; // Base ambient lighting
+        let depth_lighting = 0.7 * depth_factor; // Depth-based brightness
+        let total_lighting = (ambient + depth_lighting).clamp(0.2, 1.0);
+        
+        color * total_lighting
     }
 }

@@ -18,7 +18,7 @@ impl TurtleState {
             direction: Vec3::Y, // Start pointing up
             up: Vec3::Z,        // Up is towards viewer
             color: Vec3::new(0.0, 1.0, 0.0), // Green
-            line_width: 1.0,
+            line_width: 2.5, // Start with thicker trunk
         }
     }
 }
@@ -90,8 +90,8 @@ impl Turtle3D {
                 '[' => self.push_state(),
                 ']' => self.pop_state(),
                 '#' => self.increment_color(),
-                '!' => self.decrement_line_width(),
-                '\'' => self.increment_line_width(),
+                '!' => self.increment_line_width(), // ! makes lines thicker
+                '\'' => self.decrement_line_width(), // ' makes lines thinner
                 _ => {
                     if let Some(rules) = custom_rules {
                         if rules.contains_key(&c) {
@@ -190,11 +190,11 @@ impl Turtle3D {
     }
     
     fn increment_line_width(&mut self) {
-        self.current_state.line_width = (self.current_state.line_width * 1.2).min(5.0);
+        self.current_state.line_width = (self.current_state.line_width * 1.3).min(8.0);
     }
     
     fn decrement_line_width(&mut self) {
-        self.current_state.line_width = (self.current_state.line_width * 0.8).max(0.1);
+        self.current_state.line_width = (self.current_state.line_width * 0.7).max(0.2);
     }
     
     pub fn set_depth_colors(&mut self, enabled: bool) {

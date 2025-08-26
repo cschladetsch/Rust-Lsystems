@@ -131,7 +131,7 @@ fn main() {
     println!("Controls:");
     println!("  Mouse + Drag: Rotate camera");
     println!("  Mouse Wheel: Zoom in/out");
-    println!("  M: Toggle main menu");
+    println!("  F1: Toggle main menu");
     println!("  Tab: Toggle tree selection menu");
     println!("  1-9: Load tree species (1=Sierpinski, 2=Plant, 3=Oak, 4=Pine, 5=Cherry, 6=Maple, 7=Willow, 8=Baobab, 9=Eucalyptus)");
     println!("  G: Toggle GUI parameter controls");
@@ -166,8 +166,8 @@ fn main() {
     let mut mouse_pressed = false;
 
     while window.is_open() && !window.is_key_down(Key::Escape) {
-        // Handle main menu input
-        if window.is_key_pressed(Key::M, minifb::KeyRepeat::No) {
+        // Handle main menu input - use F1 key (Menu)
+        if window.is_key_pressed(Key::F1, minifb::KeyRepeat::No) {
             main_menu.toggle();
         }
         
@@ -223,6 +223,7 @@ fn main() {
         
         // Handle input
         if window.is_key_pressed(Key::Tab, minifb::KeyRepeat::No) {
+            println!("Tab key detected");
             menu.toggle();
         }
         

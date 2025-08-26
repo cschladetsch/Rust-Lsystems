@@ -4,8 +4,8 @@
   "angle": 25.0,
   "iterations": 6,
   "rules": {
-    "T": "F[&+T][&-T][^\\T][^\\/T]T",
-    "F": "F"
+    "T": "!!F[&+T'][&-T'][^\\T'][^\\/T']T",
+    "F": "F'"
   },
   "step_length": 0.8,
   "start_position": [0.0, -10.0, 0.0],
