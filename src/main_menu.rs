@@ -339,22 +339,23 @@ impl MainMenu {
     
     fn draw_text(&self, buffer: &mut [u32], buf_width: usize, buf_height: usize,
                 x: usize, y: usize, text: &str, color: u32) {
-        let char_width = 6;
-        let char_height = 8;
+        // Use same text rendering as menu.rs for consistency
+        let char_width = 8;
+        let char_height = 12;
         
         for (i, _c) in text.chars().enumerate() {
             let char_x = x + i * char_width;
             
+            // Draw a simple rectangle for each character
             for dy in 0..char_height {
                 for dx in 0..char_width {
                     let px = char_x + dx;
                     let py = y + dy;
                     
                     if px < buf_width && py < buf_height {
-                        if (dy == 1 || dy == char_height - 2) && dx > 0 && dx < char_width - 1 {
-                            buffer[py * buf_width + px] = color;
-                        }
-                        if (dx == 1 || dx == char_width - 2) && dy > 1 && dy < char_height - 2 {
+                        // Simple pattern to make text visible
+                        if (dy == 0 || dy == char_height - 1 || dx == 0 || dx == char_width - 1) && 
+                           dy >= 2 && dy < char_height - 2 {
                             buffer[py * buf_width + px] = color;
                         }
                     }
